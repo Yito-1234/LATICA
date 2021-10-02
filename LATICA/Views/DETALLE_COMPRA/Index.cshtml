@@ -1,0 +1,100 @@
+﻿@model IEnumerable<LATICA.Models.DETALLE_COMPRA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<center>
+    <h2>Detalle de su compra</h2>
+</center>
+
+
+<body style="margin-top:10px">
+
+    <form class="form-horizontal" id="form1">
+        <div class="container">
+            <div class="row">
+                <iv class="well-sm">
+                    <fieldset>
+                        <p>
+                            @Html.ActionLink("Registre su compra", "Create", "DETALLE_COMPRA", null, new { @class = "btn btn-primary btn-large" })
+                        </p>
+                        
+                        <button class="btn btn-dark"><a href="~/REPORTE_COMPRA.aspx"> Finalizar</a></button>
+
+                        
+
+                        <table class="table table-hover" style="font-size:small">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th>
+                                        <center>
+                                            <label>Producto</label>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <label>Fecha</label>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <label>Cantidad</label>
+                                        </center>
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                @Html.DisplayFor(modelItem => item.PRODUCTO.nom_producto)
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                @Html.DisplayFor(modelItem => item.fecha)
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                @Html.DisplayFor(modelItem => item.cantidad)
+                                            </center>
+                                        </td>
+
+                                        <td>
+                                            <button class="btn btn-info">
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                            </button>
+                                            <button class="btn btn-info">
+                                                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                            </button>
+                                            <button class="btn btn-info">
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                            </button>
+                                        </td>
+
+
+                                    </tr>
+                                }
+
+                        </table>
+
+                    </fieldset>
+
+
+
+            </div>
+        </div>
+        </div>
+    </form>
+
+
+
+
+</body>
+

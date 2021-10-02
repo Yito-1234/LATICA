@@ -1,0 +1,92 @@
+﻿@model IEnumerable<LATICA.Models.PRODUCTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center>
+    <h2>Ingreso de Productos</h2>
+</center>
+<body style="margin-top:10px">
+    <form class="form-horizontal" id="form1">
+        <div class="container">
+            <div class="row">
+                <div class="well-sm">
+                    <fieldset>
+                        <p>
+                            @Html.ActionLink("Agregar Producto", "Create", "PRODUCTOes", null, new { @class = "btn btn-primary btn-large" })
+                        </p>
+                        <table class="table table-hover" style="font-size:small">
+                            <thead class="text-primary">
+                                <tr>
+
+                                    <th>
+                                        <center>
+                                            <label>Producto</label>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <label>Descripción</label>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <label>Cantidad</label>
+                                        </center>
+                                    </th>
+                                    <th>
+                                        <center>
+                                            <label>Fotografía</label>
+                                        </center>
+                                    </th>
+
+                                    <th></th>
+
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                @Html.DisplayFor(modelItem => item.nom_producto)
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                @Html.DisplayFor(modelItem => item.descripcion)
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                @Html.DisplayFor(modelItem => item.cantidad)
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <img width="60" height="60" src="@Url.Action("ConvertirImagen","PRODUCTOes", new {id = item.id} ) " />
+                                            </center>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-info">
+                                                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                                            </button>
+                                            <button class="btn btn-info">
+                                                @Html.ActionLink("Ver Producto", "Details", new { id = item.id }) |
+                                            </button>
+                                            <button class="btn btn-info">
+                                                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                                            </button>
+                                                </td>
+                                    </tr>
+                                }
+
+                        </table>
+                        </thead>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

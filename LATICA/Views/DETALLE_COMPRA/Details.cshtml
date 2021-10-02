@@ -1,0 +1,43 @@
+﻿@model LATICA.Models.DETALLE_COMPRA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DETALLE_COMPRA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODUCTO.nom_producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCTO.nom_producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+
+    @Html.ActionLink("Regresar", "Index", "DETALLE_COMPRA", null, new { @class = "btn btn-primary btn-large" })
+</p>

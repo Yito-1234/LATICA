@@ -1,0 +1,50 @@
+﻿@model LATICA.Models.PRODUCTO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PRODUCTO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Nombre Producto</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_producto)
+        </dd>
+
+        <dt>
+            <label>Descripción</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            <label>Cantidad</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            <label>Fotografía</label>
+        </dt>
+
+        <dd>
+            <img width="200" height="200" src="@Url.Action("ConvertirImagen","PRODUCTOes", new {id = Model.id} ) " />
+        </dd>
+
+    </dl>
+</div>
+<p>
+  
+    @Html.ActionLink("Regresar", "Index", "PRODUCTOes", null, new { @class = "btn btn-primary btn-large" })
+</p>
