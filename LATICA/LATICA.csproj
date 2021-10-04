@@ -144,13 +144,6 @@
     <Compile Include="Models\DETALLE_COMPRA.cs" />
     <Compile Include="Models\PRODUCTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="REPORTE_COMPRA.aspx.cs">
-      <DependentUpon>REPORTE_COMPRA.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="REPORTE_COMPRA.aspx.designer.cs">
-      <DependentUpon>REPORTE_COMPRA.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -161,7 +154,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="REPORTE_COMPRA.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -200,7 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Eliminar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

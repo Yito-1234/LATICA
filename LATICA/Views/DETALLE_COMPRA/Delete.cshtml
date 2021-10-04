@@ -4,23 +4,25 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Eliminar Producto</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
 <div>
-    <h4>DETALLE_COMPRA</h4>
+ 
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.PRODUCTO.nom_producto)
+            <label>Producto</label>
         </dt>
+
 
         <dd>
             @Html.DisplayFor(model => model.PRODUCTO.nom_producto)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.fecha)
+            <label>Fecha</label>
         </dt>
 
         <dd>
@@ -28,8 +30,9 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            <label>Cantidad</label>
         </dt>
+
 
         <dd>
             @Html.DisplayFor(model => model.cantidad)

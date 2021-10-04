@@ -21,12 +21,10 @@
                         <p>
                             @Html.ActionLink("Registre su compra", "Create", "DETALLE_COMPRA", null, new { @class = "btn btn-primary btn-large" })
                         </p>
-                        
-                        <button class="btn btn-dark"><a href="~/REPORTE_COMPRA.aspx"> Finalizar</a></button>
 
-                        
+                     
 
-                        <table class="table table-hover" style="font-size:small">
+                        <table id="prueba" class="table table-hover" style="font-size:small">
                             <thead class="text-primary">
                                 <tr>
                                     <th>
@@ -46,7 +44,8 @@
                                     </th>
                                     <th></th>
                                 </tr>
-
+                                </thead>
+                            <tbody>
                                 @foreach (var item in Model)
                                 {
                                     <tr>
@@ -68,19 +67,20 @@
 
                                         <td>
                                             <button class="btn btn-info">
-                                                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
                                             </button>
+
                                             <button class="btn btn-info">
-                                                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                                            </button>
-                                            <button class="btn btn-info">
-                                                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
                                             </button>
                                         </td>
 
 
                                     </tr>
                                 }
+                                </tbody>
+                               
+                                
 
                         </table>
 
@@ -90,10 +90,35 @@
 
             </div>
         </div>
-        </div>
     </form>
 
+   @section Scripts
+       {
+       <script>
+           $(document).ready(function () {
+               $("#prueba").DataTable({
+                   dom:'Bfrtip',
+                   buttons: [{ extend: 'pdf', className:'btn btn-primary btn-large finalizaCompra', text:'Finalizar Compra'}]
+               });
 
+              
+
+               $(".finalizaCompra").on('click', function (e) {
+                   $.ajax({
+                       type: 'post',
+                       url: '@Url.Action("Borrar","DETALLE_COMPRA")',
+                       success: function (data)
+                       {
+                           console.log("success", data);
+                           if (data.result == 'Ok') {
+                               window.location.href ='@Url.Action("Index", "DETALLE_COMPRA")';
+                           }
+                       }
+                   });
+               })
+           })
+       </script>
+       }
 
 
 </body>

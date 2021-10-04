@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LATICA.Models;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace LATICA.Controllers
 {
@@ -22,8 +23,22 @@ namespace LATICA.Controllers
             return View(dETALLE_COMPRA.ToList());
         }
 
+        [HttpPost]
+        public async Task<JsonResult> Borrar()
+        {
+            try
+            {
+                await db.DETALLE_COMPRA.ForEachAsync(x => { db.DETALLE_COMPRA.Remove(x); });
+                await db.SaveChangesAsync();
+                return Json(new { result="Ok" });
+            }
+            catch (Exception ex)
+            {
 
-     
+                return Json(new { result = ex.Message });
+            }
+        }
+
 
 
 
